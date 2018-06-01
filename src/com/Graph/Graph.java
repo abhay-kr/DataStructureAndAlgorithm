@@ -4,12 +4,12 @@ import java.util.*;
 
 public class Graph {
 
-    int v;
+    int V;
     List<Integer> list[];
 
     public Graph(int x) {
-        v = x;
-        list = new LinkedList[v];
+        V = x;
+        list = new LinkedList[V];
         for (int i = 0; i < list.length; i++) {
             list[i] = new LinkedList<>();
         }
@@ -29,11 +29,11 @@ public class Graph {
     }
 
     void topologicalSort(){
-        boolean visited[]=new boolean[v];
+        boolean visited[]=new boolean[V];
 
         Stack <Integer> stack=new Stack<>();
 
-        for (int i = 0; i< v; i++){
+        for (int i = 0; i< V; i++){
             if (!visited[i]){
                 topologicalSortUtil(i,stack,visited);
             }
@@ -61,7 +61,7 @@ public class Graph {
     void DFSUsingIterator(int x){
 
         Stack <Integer> stack=new Stack<>();
-        boolean visited[]=new boolean[v];
+        boolean visited[]=new boolean[V];
 
         stack.push(x);
         visited[x]=true;
@@ -91,7 +91,7 @@ public class Graph {
     void printPath(int x,int y){
         if (x==y)
             return;
-        boolean visited[]=new boolean[v];
+        boolean visited[]=new boolean[V];
         Stack <Integer> stack=new Stack<>();
         stack.push(x);
         visited[x]=true;
@@ -122,14 +122,14 @@ public class Graph {
     }
 
     void longestPath(){
-        boolean visited[]=new boolean[v];
+        boolean visited[]=new boolean[V];
 
     }
 
 
     void breadthFirstTraversal(int x) {
 //        we make use of boolean visited array to keep list of visited array
-        boolean visited[]=new boolean[v];
+        boolean visited[]=new boolean[V];
 //        we use the queue ds for level order traversal like we use in tree
         Queue <Integer> queue=new LinkedList<>();
         queue.add(x);
@@ -166,8 +166,8 @@ public class Graph {
 
     void depthFirstTraversal(int n){
 
-        boolean visited[]=new boolean[v];
-        for (int i = 0; i< v; i++){
+        boolean visited[]=new boolean[V];
+        for (int i = 0; i< V; i++){
             if (!visited[i]){
                 DFSUtil(n,visited);
             }
@@ -175,17 +175,17 @@ public class Graph {
     }
 
     void floydWarshallAlgorithm(){
-        int mat[][]=new int[v][v];
+        int mat[][]=new int[V][V];
 
-        for (int i = 0; i< v; i++){
-            for (int j = 0; j< v; j++)
+        for (int i = 0; i< V; i++){
+            for (int j = 0; j< V; j++)
                 mat[i][j]=5555555;
         }
 
-        for (int i = 0; i< v; i++)
+        for (int i = 0; i< V; i++)
             mat[i][i]=0;
 
-        for (int i = 0; i< v; i++){
+        for (int i = 0; i< V; i++){
             Iterator <Integer> iterator=list[i].listIterator();
             while (iterator.hasNext()){
                 int j=iterator.next();
@@ -193,17 +193,17 @@ public class Graph {
             }
         }
 
-        for (int k = 0; k< v; k++){
-            for (int i = 0; i< v; i++){
-                for (int j = 0; j< v; j++){
+        for (int k = 0; k< V; k++){
+            for (int i = 0; i< V; i++){
+                for (int j = 0; j< V; j++){
                     if (mat[i][j]>mat[i][k]+mat[k][j])
                         mat[i][j]=mat[i][k]+mat[k][j];
                 }
             }
         }
 
-        for (int i = 0; i< v; i++){
-            for (int j = 0; j< v; j++) {
+        for (int i = 0; i< V; i++){
+            for (int j = 0; j< V; j++) {
                 if (mat[i][j]==5555555)
                     System.out.print("I ");
                 else
@@ -214,12 +214,12 @@ public class Graph {
     }
 
    void transitiveClosure(){
-        int mat[][]=new int[v][v];
+        int mat[][]=new int[V][V];
 
-        for (int i = 0; i< v; i++)
+        for (int i = 0; i< V; i++)
             dfsUtil(i,i,mat);
-        for (int i = 0; i< v; i++) {
-            for (int j = 0; j < v; j++)
+        for (int i = 0; i< V; i++) {
+            for (int j = 0; j < V; j++)
                 System.out.print(mat[i][j] + " ");
             System.out.println();
         }
@@ -237,7 +237,7 @@ public class Graph {
     }
 
     void findKCores(int n){
-       for (int i = 0; i< v; i++){
+       for (int i = 0; i< V; i++){
            Iterator<Integer> iterator=list[i].listIterator();
 
        }
