@@ -62,7 +62,7 @@ public class StringPermutation {
 
     public static void main(String Args[]){
         StringPermutation stringPermutation =new StringPermutation();
-        String str="aacde";
+        String str="abcde";
         stringPermutation.pattern(str);
     }
 }
