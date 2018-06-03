@@ -1,5 +1,7 @@
 package com.String;
 
+import java.lang.reflect.Array;
+
 public class StringBasics {
 
     void reverseSpecial(String str){
@@ -32,6 +34,12 @@ public class StringBasics {
     public static void main(String Args[]){
         StringBasics obj=new StringBasics();
         obj.reverseSpecial("a!!!b.c.d,e'f,ghi");// i!!!h.g.f,e'd,cba
+
+        String str="abhay-kumar-abhay";
+        for (int i=0;i< str.split("-").length;i++){
+            System.out.print(str.split("-")[i]+"  ");
+        }
+        System.out.println(str.replace("-",""));
 
     }
 }
